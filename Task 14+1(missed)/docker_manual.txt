@@ -1,0 +1,25 @@
+First run the following command :
+sudo systemctl start docker
+sudo systemctl status docker //check status whether docker is running
+sudo systemctl enable docker //starts dockerengine as soon as OS boots up
+sudo docker images // check what images are created or not.
+sudo docker pull hello-world //dummy docker image
+// always use docker with sudo for safety from vulnerability
+sudo docker images //now check images
+sudo docker run <container_name> (hello-world) in my case
+sudo docker container ls -a //info about docker containers
+sudo docker pull ubuntu:latest //install ubuntu image
+sudo docker run ubuntu:latest // run the image
+sudo docker run --name myfirst -it ubuntu // run docker container name
+//  it myfirst and run in interactive mode with -it
+exit // come out of container
+sudo docker container ls -a // check your container name myfirst
+sudo docker exec -it myfirst /bin/bash // execute in interactive mode 
+// myfirst container the location of bash is always given when runnnig it
+// for second time
+sudo docker start myfrist //start container
+// make a code file 
+// make a docker file attached with instructions
+sudo docker build -t first_img . // it copies all the files present in the directory
+// and bulds docker first image with those files
+

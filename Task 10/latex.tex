@@ -1,0 +1,326 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}    % For custom headers and footers
+\usepackage{geometry}    % For setting page margins
+\usepackage{amsmath}     % For advanced mathematical formatting
+\usepackage{hyperref}    % For hyperlinks
+\usepackage{float}
+
+% Page margin
+
+% Header and Footer settings
+\pagestyle{fancy}
+\fancyhead[L]{\textbf{Assignment : 2}}         % Left header
+\fancyhead[R]{\textbf{FAST NUCES}}     % Right header
+\fancyfoot[C]{\thepage}                % Center footer with page number
+
+% Title Information
+
+\date{Oct 25,2024} % No date
+
+% Page settings
+%\geometry{
+%	a4paper,
+%	total={170mm,257mm},
+%	left=20mm,
+%	top=20mm,
+%}
+
+% Listings settings
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Task \# 10}
+\author{Muhammad Shafeen\\
+	FAST University Peshawar\\
+	Department of Computer Science\\
+	Course: Operating System\\
+	Instructor: Saad Ahmad}
+
+
+\begin{document}
+	
+	\section{Kill Command}
+	This command is used to politely kill the running process , we have different sub commands or kill processes under the kill command
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 08-47-38"}
+	\caption{Showing processes that are runnning }
+	\label{fig:screenshot-from-2024-10-25-08-47-38}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 08-47-58"}
+	\caption{killing the bash with process id {7097}}
+	\label{fig:screenshot-from-2024-10-25-08-47-58}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 08-48-08"}
+	\caption{As you can see the process we just killed has been terminated}
+	\label{fig:screenshot-from-2024-10-25-08-48-08}
+\end{figure}
+
+\section{5.1.1.1 Exercise}
+\subsection{Question : }
+The integer representation for the SIGTERM signal		
+\subsection{Answer : }
+The integer representation for the SIGTERM is 15
+\subsection{Question : }
+The PID of your current active bash shell cess, we will use
+using the ps command
+\subsection{Answer : }
+The integer representation for bash shell on my pc : 4482 , 4847 , 7116 , 7514
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-03-53"}
+		\caption{This show the current processes}
+		\label{fig:screenshot-from-2024-10-25-09-03-53}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-06-33"}
+		\caption{Killing the terminal process}
+		\label{fig:screenshot-from-2024-10-25-09-06-33}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-07-00"}
+		\caption{The process has been killed}
+		\label{fig:screenshot-from-2024-10-25-09-07-00}
+	\end{figure}
+\section{Kill () command\\ C code)}	
+\begin{lstlisting}[language=C, caption={Mini-Shell using execvp}]
+	#include<stdio.h>
+	#include<sys/types.h>
+	#include<signal.h>
+	#include<unistd.h>
+	int main()
+	{
+		printf("\nMuhammad Shafeen\n");
+		printf("22P-9278\n");
+		printf("BAI-5A\n");
+		
+		int x=10;
+		int y=20;
+		int sum=x+y;
+		printf("Sum of %d and %d is : %d\n",x,y,sum);
+		
+		kill(getpid(),9);
+		
+		printf("The program has been killed\n");
+		return 0;
+	}	
+\end{lstlisting}		
+\subsection{Screenshots of C code}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-17-46"}
+	\caption{The code for killing a process using C code}
+	\label{fig:screenshot-from-2024-10-25-09-17-46}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-17-51"}
+	\caption{Output of the code}
+	\label{fig:screenshot-from-2024-10-25-09-17-51}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-26-06"}
+	\caption{The code to use 15 as kill }
+	\label{fig:screenshot-from-2024-10-25-09-26-06}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 09-26-11"}
+	\caption{Output of the code}
+	\label{fig:screenshot-from-2024-10-25-09-26-11}
+\end{figure}
+\section{5.1.5.1 Exercise}
+\subsection{Code using fork , Child signal-ing parent to kill}
+I have used the execl command to show the processes 
+and then killed the process with SIGTERM and then display the processes after killing it
+\begin{lstlisting}[language=C, caption={Mini-Shell using execvp}]
+#include<stdio.h>
+#include<sys/types.h>
+#include<signal.h>
+#include<unistd.h>
+#include<stdlib.h>
+int main()
+{
+	printf("\nMuhammad Shafeen\n");
+	printf("22P-9278\n");
+	printf("BAI-5A\n");
+	
+	int x=10;
+	int y=20;
+	int sum=x+y;
+	printf("Sum of %d and %d is : %d\n",x,y,sum);
+	pid_t pid;
+	pid=fork();
+	if(pid==0)
+	{
+		pid_t pid2;
+		pid2=fork();
+		if(pid2==0)
+		{
+			printf("Showing processess before killing it\n");
+			execl("/bin/ps","ps -au",(char *)NULL);
+			perror("execl failed");
+		}
+		// sleep(5);
+	}
+	else
+	{
+		kill(getppid(),15); //9
+		printf("Showing processess after killing it\n");
+		execl("/bin/ps","ps -au",(char *)NULL);
+		perror("execl failed");
+		exit(EXIT_FAILURE);
+		return 0;
+	}
+}
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 10-00-02"}
+	\caption{Code for kill() using fork()}
+	\label{fig:screenshot-from-2024-10-25-10-00-02}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 10-00-08"}
+	\caption{Output of the code for kill() and fork() )}
+	\label{fig:screenshot-from-2024-10-25-10-00-08}
+\end{figure}
+
+	
+\subsection{Code using fork , parent signal-ing child to kill}
+I have used the execl command to show the processes 
+and then killed the process with SIGTERM and then display the processes after killing it
+\begin{lstlisting}[language=C, caption={Mini-Shell using execvp}]
+#include<stdio.h>
+#include<sys/types.h>
+#include<signal.h>
+#include<unistd.h>
+#include<stdlib.h>
+int main()
+{
+	printf("\nMuhammad Shafeen\n");
+	printf("22P-9278\n");
+	printf("BAI-5A\n");
+	
+	int x=10;
+	int y=20;
+	int sum=x+y;
+	printf("Sum of %d and %d is : %d\n",x,y,sum);
+	pid_t pid;
+	pid=fork();
+	if(pid==0)
+	{
+		sleep(1);
+		pid_t pid2;
+		pid2=fork();
+		if(pid2==0)
+		{
+			printf("Showing processess before killing it\n");
+			execl("/bin/ps","ps -au",(char *)NULL);
+			perror("execl failed");
+		}
+		kill(getpid(),15); //9
+		// sleep(5);
+	}
+	else
+	{
+		sleep(2);
+		printf("Showing processess after killing it\n");
+		execl("/bin/ps","ps -au",(char *)NULL);
+		perror("execl failed");
+		exit(EXIT_FAILURE);
+		return 0;
+	}
+}	
+
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 10-08-12"}
+	\caption{}
+	\label{fig:screenshot-from-2024-10-25-10-08-12}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 10-08-18"}
+	\caption{}
+	\label{fig:screenshot-from-2024-10-25-10-08-18}
+\end{figure}
+\section{Signal Handling Exercise}
+\begin{lstlisting}[language=C, caption={Mini-Shell using execvp}]
+#include <signal.h>
+#include <stdio.h>
+#include <unistd.h>
+int sigCounter = 0;
+void sigHandler(int sigNum)
+{
+	printf("Signal received is %d\n", sigNum);
+	++sigCounter;
+	printf("Signals received %d\n", sigCounter); }
+int main()
+{
+	signal(SIGINT, sigHandler);
+	while(1)
+	{
+		printf("Hello Dears\n");
+		sleep(1);
+	}
+	return 0;
+}	
+	
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 10-13-03"}
+	\caption{The code for infinite loop}
+	\label{fig:screenshot-from-2024-10-25-10-13-03}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{"../../../../../../home/shafeenyousafzai/Pictures/Screenshots/Screenshot from 2024-10-25 10-23-40"}
+	\caption{Execution of infinite loop}
+	\label{fig:screenshot-from-2024-10-25-10-23-40}
+\end{figure}
+
+
+\end{document}

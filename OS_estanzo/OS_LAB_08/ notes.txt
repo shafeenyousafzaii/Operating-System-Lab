@@ -1,0 +1,12 @@
+pipes are used for interprocess communication.
+Two Ways for interprocess communication(IPC)
+wait and pipes
+
+3, 4 two pipes are created and they use the 0 and 1 file descriptors
+the process write in output 1 descriptors
+the process read from input file 0 descriptors 
+pipes open files so we have also need to close the pipes just like files
+
+dup2 => function duplicates an open file descriptors 
+pfd[0] has input file descriptors
+pfd[1] has output file descriptors
